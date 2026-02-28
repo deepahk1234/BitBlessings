@@ -131,7 +131,6 @@ struct BitchatApp: App {
                 #endif
         }
         #if os(macOS)
-        .windowStyle(.hiddenTitleBar)
         .windowResizability(.contentSize)
         #endif
     }
