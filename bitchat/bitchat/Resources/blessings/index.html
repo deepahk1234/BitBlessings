@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Energy of Blessings</title>
+    <meta name="description"
+        content="Seek a blessing — ask a question and let the community respond with Yes, No, or Wait through the bitchat mesh network.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <main class="container" id="app">
+
+        <!-- ══════════════════════════════════════════ -->
+        <!-- HEADER                                     -->
+        <!-- ══════════════════════════════════════════ -->
+        <header class="app-header">
+            <div class="header-glow"></div>
+            <div class="header-inner">
+                <div class="header-icon">🙏</div>
+                <div>
+                    <h1 class="app-title">Blessings</h1>
+                    <p class="app-subtitle">Ask · Receive · Respond</p>
+                </div>
+                <div class="peer-indicator" id="peerIndicator" title="Connected via bitchat mesh">
+                    <span class="peer-dot"></span>
+                    <span class="peer-label" id="peerLabel">Mesh</span>
+                </div>
+            </div>
+            <div class="my-nick-badge">You are: <strong id="myNickDisplay">—</strong></div>
+        </header>
+
+        <!-- ══════════════════════════════════════════ -->
+        <!-- SECTION 1: SEEK A BLESSING (Ask)          -->
+        <!-- ══════════════════════════════════════════ -->
+        <section class="card ask-card" id="askSection">
+            <div class="card-header">
+                <span class="card-icon">✨</span>
+                <h2 class="card-title">Seek a Blessing</h2>
+            </div>
+            <p class="card-hint">Type your question and broadcast it across the mesh. Up to 30 souls may respond.</p>
+
+            <div class="ask-form">
+                <textarea id="questionInput" class="question-textarea" rows="3" maxlength="280"
+                    placeholder="Should I take the new opportunity? Is this the right path for me…"></textarea>
+                <div class="ask-footer">
+                    <span class="char-counter" id="charCounter">0 / 280</span>
+                    <button class="btn btn-primary" id="askBtn" onclick="askBlessing()">
+                        <span class="btn-icon">🌿</span> Send Blessing
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sent confirmation -->
+            <div class="confirmation hidden" id="confirmation">
+                <div class="confirm-icon">🌟</div>
+                <p>Your blessing has been sent into the mesh. Waiting for responses…</p>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════ -->
+        <!-- SECTION 2: ACTIVE BLESSINGS (Vote)        -->
+        <!-- ══════════════════════════════════════════ -->
+        <section class="card blessings-card" id="blessingsSection">
+            <div class="card-header">
+                <span class="card-icon">🕊️</span>
+                <h2 class="card-title">Active Blessings</h2>
+                <span class="badge" id="activeBadge">0</span>
+            </div>
+
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon tree-anim">🌳</div>
+                <p>No blessings active yet.</p>
+                <p class="empty-sub">Ask a question above, or wait for a peer to seek a blessing.</p>
+            </div>
+
+            <!-- Live blessing question cards injected here -->
+            <div id="blessingsList" class="blessings-list"></div>
+        </section>
+
+        <!-- ══════════════════════════════════════════ -->
+        <!-- SECTION 3: THE ENERGY (Collapsible)       -->
+        <!-- ══════════════════════════════════════════ -->
+        <section class="toggle-section">
+            <div class="toggle-header" onclick="toggleSection('articleContent', 'articleToggle')">
+                <span class="toggle-header-left">
+                    <span class="toggle-header-icon">📖</span>
+                    <h2>The Energy of Blessings</h2>
+                </span>
+                <span class="toggle-icon" id="articleToggle">▼</span>
+            </div>
+            <div class="toggle-content" id="articleContent">
+                <article class="content-card">
+                    <p class="intro">
+                        In the realm of intention and energy, there exists a profound distinction that many fail to
+                        grasp.
+                    </p>
+                    <p>
+                        A wish is merely a <span class="highlight">hope</span> or a <span class="highlight">nice
+                            thought</span>—a gentle whisper
+                        carried on the wind, lacking substance or force. A blessing, however, is fundamentally
+                        <span class="highlight">a piece of energy</span>—tangible force, measurable potential, pure
+                        momentum.
+                    </p>
+                    <p>
+                        This energy is available only if a person is <span class="highlight">fluid enough to receive
+                            it</span>. When you
+                        are fluid, blessings flow into you like rain into fertile soil. But when you become
+                        crystallised—hardened by
+                        bitterness or fear—even the most powerful blessing cannot penetrate your defenses.
+                    </p>
+                    <p class="final-question">
+                        Which tree calls to you today? Are you fluid enough to receive its answer?
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════ -->
+        <!-- SECTION 4: INTERACTIVE GARDEN             -->
+        <!-- ══════════════════════════════════════════ -->
+        <section class="toggle-section">
+            <div class="toggle-header" onclick="toggleSection('gardenContent', 'gardenToggle')">
+                <span class="toggle-header-left">
+                    <span class="toggle-header-icon">🌳</span>
+                    <h2>Interactive Garden</h2>
+                </span>
+                <span class="toggle-icon open" id="gardenToggle">▲</span>
+            </div>
+            <div class="toggle-content open" id="gardenContent">
+                <section class="garden-section">
+                    <!-- Legend/Filter Controls -->
+                    <div class="controls-container">
+                        <div class="legend-card" data-type="yes">
+                            <div class="icon-circle green"></div>
+                            <div class="text">
+                                <span class="legend-title">"Yes" – Proceed</span>
+                                <span class="legend-subtitle">Solid Green Trees</span>
+                            </div>
+                        </div>
+                        <div class="legend-card" data-type="no">
+                            <div class="icon-circle yellow"></div>
+                            <div class="text">
+                                <span class="legend-title">"No" – Stop</span>
+                                <span class="legend-subtitle">Yellow Carnations</span>
+                            </div>
+                        </div>
+                        <div class="legend-card" data-type="wait">
+                            <div class="icon-circle pink"></div>
+                            <div class="text">
+                                <span class="legend-title">"Wait" – Patience</span>
+                                <span class="legend-subtitle">Pink Trees</span>
+                            </div>
+                        </div>
+                        <div class="legend-card" data-type="center">
+                            <div class="icon-circle banyan"></div>
+                            <div class="text">
+                                <span class="legend-title">The Centre</span>
+                                <span class="legend-subtitle">Great Banyan Tree</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- View Toggle -->
+                    <div class="view-toggle">
+                        <button id="toggleViewBtn" class="toggle-btn">
+                            <span class="icon">🌳</span>
+                            <span id="viewText">Switch to Side View</span>
+                        </button>
+                    </div>
+
+                    <!-- Garden Display -->
+                    <div class="garden-display-wrapper">
+                        <!-- Top / Bird's-eye view -->
+                        <div class="garden-view top-view active" id="topView">
+                            <div class="garden-ground">
+                                <div class="tree banyan-top" style="top:50%;left:50%;" data-type="center"></div>
+                                <div class="tree green-top" style="top:15%;left:20%;" data-type="yes"></div>
+                                <div class="tree green-top" style="top:70%;left:20%;" data-type="yes"></div>
+                                <div class="tree green-top" style="top:15%;left:70%;" data-type="yes"></div>
+                                <div class="tree green-top" style="top:65%;left:75%;" data-type="yes"></div>
+                                <div class="tree green-top" style="top:30%;left:85%;" data-type="yes"></div>
+                                <div class="tree pink-top" style="top:30%;left:15%;" data-type="wait"></div>
+                                <div class="tree pink-top" style="top:50%;left:10%;" data-type="wait"></div>
+                                <div class="tree pink-top" style="top:45%;left:80%;" data-type="wait"></div>
+                                <div class="tree pink-top" style="top:65%;left:50%;" data-type="wait"></div>
+                                <div class="tree yellow-top" style="top:20%;left:40%;" data-type="no"></div>
+                                <div class="tree yellow-top" style="top:40%;left:25%;" data-type="no"></div>
+                                <div class="tree yellow-top" style="top:35%;left:75%;" data-type="no"></div>
+                                <div class="tree yellow-top" style="top:60%;left:35%;" data-type="no"></div>
+                            </div>
+                        </div>
+
+                        <!-- Side view -->
+                        <div class="garden-view side-view hidden" id="sideView">
+                            <div class="sky"></div>
+                            <div class="ground"></div>
+                            <div class="trees-container-side">
+                                <div class="tree-side green-side" style="left:10%;transform:scale(0.8);"
+                                    data-type="yes"></div>
+                                <div class="tree-side pink-side" style="left:80%;transform:scale(0.9);"
+                                    data-type="wait"></div>
+                                <div class="tree-side yellow-side" style="left:25%;transform:scale(0.7);"
+                                    data-type="no"></div>
+                                <div class="tree-side banyan-side" data-type="center">
+                                    <div class="canopy"></div>
+                                    <div class="trunk"></div>
+                                </div>
+                                <div class="tree-side pink-side" style="left:15%;z-index:10;" data-type="wait"></div>
+                                <div class="tree-side green-side" style="left:75%;z-index:10;" data-type="yes"></div>
+                                <div class="tree-side yellow-side" style="left:65%;z-index:8;" data-type="no"></div>
+                                <div class="tree-side pink-side" style="left:30%;z-index:9;" data-type="wait"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Description overlay -->
+                    <div id="descriptionPanel" class="description-panel hidden">
+                        <h3 id="descTitle"></h3>
+                        <p id="descText"></p>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- BLESSING CARD TEMPLATE (hidden, cloned by JS) -->
+    <template id="blessingCardTemplate">
+        <div class="blessing-card" data-question-id="">
+            <div class="bc-header">
+                <div class="bc-avatar"></div>
+                <div class="bc-meta">
+                    <span class="bc-asker"></span>
+                    <span class="bc-time"></span>
+                </div>
+                <div class="bc-badge own-badge hidden">You asked</div>
+                <div class="bc-count"><span class="bc-count-num">0</span>/30</div>
+            </div>
+            <p class="bc-question"></p>
+
+            <!-- Vote buttons (hidden for own questions / after voting) -->
+            <div class="bc-vote-buttons" data-question-id="">
+                <button class="vote-btn yes-btn" onclick="castVote(this, 'yes')">
+                    <span class="vote-emoji">🌿</span>
+                    <span class="vote-label">Yes</span>
+                </button>
+                <button class="vote-btn no-btn" onclick="castVote(this, 'no')">
+                    <span class="vote-emoji">🌼</span>
+                    <span class="vote-label">No</span>
+                </button>
+                <button class="vote-btn wait-btn" onclick="castVote(this, 'wait')">
+                    <span class="vote-emoji">🌸</span>
+                    <span class="vote-label">Wait</span>
+                </button>
+            </div>
+
+            <!-- Voted / own-question message -->
+            <div class="bc-voted-msg hidden"></div>
+
+            <!-- Live vote bars -->
+            <div class="bc-results">
+                <div class="bc-bar-row yes-row">
+                    <span class="bc-bar-label">🌿 Yes</span>
+                    <div class="bc-bar-track">
+                        <div class="bc-bar-fill yes-fill" style="width:0%"></div>
+                    </div>
+                    <span class="bc-bar-count yes-count">0</span>
+                </div>
+                <div class="bc-bar-row no-row">
+                    <span class="bc-bar-label">🌼 No</span>
+                    <div class="bc-bar-track">
+                        <div class="bc-bar-fill no-fill" style="width:0%"></div>
+                    </div>
+                    <span class="bc-bar-count no-count">0</span>
+                </div>
+                <div class="bc-bar-row wait-row">
+                    <span class="bc-bar-label">🌸 Wait</span>
+                    <div class="bc-bar-track">
+                        <div class="bc-bar-fill wait-fill" style="width:0%"></div>
+                    </div>
+                    <span class="bc-bar-count wait-count">0</span>
+                </div>
+            </div>
+
+            <!-- Responder avatars strip -->
+            <div class="bc-responders"></div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+    <script>
+        // Shared accordion toggle (used by article + garden sections)
+        function toggleSection(contentId, toggleId) {
+            const content = document.getElementById(contentId);
+            const icon = document.getElementById(toggleId);
+            content.classList.toggle('open');
+            icon.classList.toggle('open');
+            icon.textContent = content.classList.contains('open') ? '▲' : '▼';
+        }
+    </script>
+</body>
+
+</html>
