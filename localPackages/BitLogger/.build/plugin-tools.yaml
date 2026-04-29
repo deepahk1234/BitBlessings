@@ -1,0 +1,112 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "BitLogger-arm64-apple-macosx15.0-release.module": ["<BitLogger-arm64-apple-macosx15.0-release.module>"]
+  "BitLoggerPackageTests-arm64-apple-macosx15.0-release.module": ["<BitLoggerPackageTests-arm64-apple-macosx15.0-release.module>"]
+  "BitLoggerPackageTests-arm64-apple-macosx15.0-release.test": ["<BitLoggerPackageTests-arm64-apple-macosx15.0-release.test>"]
+  "BitLoggerTests-arm64-apple-macosx15.0-release.module": ["<BitLoggerTests-arm64-apple-macosx15.0-release.module>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<BitLogger-arm64-apple-macosx15.0-release.module>"]
+  "test": ["<BitLogger-arm64-apple-macosx15.0-release.module>","<BitLoggerPackageTests-arm64-apple-macosx15.0-release.test>","<BitLoggerTests-arm64-apple-macosx15.0-release.module>"]
+default: "main"
+nodes:
+  "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/Sources/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/Tests/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLogger.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/Sources/OSLog+Categories.swift","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/Sources/SecureLogger.swift","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/Sources/String+Sanitization.swift"]
+    outputs: ["/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLogger.build/sources"]
+    description: "Write auxiliary file /Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLogger.build/sources"
+
+  "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.derived/runner.swift"]
+    outputs: ["/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.build/sources"]
+    description: "Write auxiliary file /Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.build/sources"
+
+  "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.derived/runner.swift":
+    tool: test-entry-point-tool
+    inputs: []
+    outputs: ["/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.derived/runner.swift"]
+
+  "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLogger.build/OSLog+Categories.swift.o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLogger.build/SecureLogger.swift.o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLogger.build/String+Sanitization.swift.o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.build/runner.swift.o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerTests.build/StringSanitizationTests.swift.o"]
+    outputs: ["/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.product/Objects.LinkFileList"
+
+  "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerTests.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/Tests/StringSanitizationTests.swift"]
+    outputs: ["/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerTests.build/sources"]
+    description: "Write auxiliary file /Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerTests.build/sources"
+
+  "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"]
+    outputs: ["/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt"
+
+  "<BitLogger-arm64-apple-macosx15.0-release.module>":
+    tool: phony
+    inputs: ["/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLogger.build/OSLog+Categories.swift.o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLogger.build/SecureLogger.swift.o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLogger.build/String+Sanitization.swift.o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/Modules/BitLogger.swiftmodule"]
+    outputs: ["<BitLogger-arm64-apple-macosx15.0-release.module>"]
+
+  "<BitLoggerPackageTests-arm64-apple-macosx15.0-release.module>":
+    tool: phony
+    inputs: ["/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.build/runner.swift.o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/Modules/BitLoggerPackageTests.swiftmodule"]
+    outputs: ["<BitLoggerPackageTests-arm64-apple-macosx15.0-release.module>"]
+
+  "<BitLoggerPackageTests-arm64-apple-macosx15.0-release.test>":
+    tool: phony
+    inputs: ["/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.xctest/Contents/MacOS/BitLoggerPackageTests"]
+    outputs: ["<BitLoggerPackageTests-arm64-apple-macosx15.0-release.test>"]
+
+  "<BitLoggerTests-arm64-apple-macosx15.0-release.module>":
+    tool: phony
+    inputs: ["/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerTests.build/StringSanitizationTests.swift.o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/Modules/BitLoggerTests.swiftmodule"]
+    outputs: ["<BitLoggerTests-arm64-apple-macosx15.0-release.module>"]
+
+  "C.BitLogger-arm64-apple-macosx15.0-release.module":
+    tool: shell
+    inputs: ["/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/Sources/OSLog+Categories.swift","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/Sources/SecureLogger.swift","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/Sources/String+Sanitization.swift","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLogger.build/sources"]
+    outputs: ["/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLogger.build/OSLog+Categories.swift.o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLogger.build/SecureLogger.swift.o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLogger.build/String+Sanitization.swift.o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/Modules/BitLogger.swiftmodule"]
+    description: "Compiling Swift Module 'BitLogger' (3 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","BitLogger","-emit-dependencies","-emit-module","-emit-module-path","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/Modules/BitLogger.swiftmodule","-output-file-map","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLogger.build/output-file-map.json","-parse-as-library","-whole-module-optimization","-num-threads","12","-c","@/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLogger.build/sources","-I","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/Modules","-target","arm64-apple-macosx13.0","-whole-module-optimization","-num-threads","12","-serialize-diagnostics","-O","-j12","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLogger.build/include/BitLogger-Swift.h","-color-diagnostics","-swift-version","5","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","bitlogger"]
+
+  "C.BitLoggerPackageTests-arm64-apple-macosx15.0-release.module":
+    tool: shell
+    inputs: ["/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.derived/runner.swift","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/Modules/BitLoggerTests.swiftmodule","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.build/sources"]
+    outputs: ["/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.build/runner.swift.o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/Modules/BitLoggerPackageTests.swiftmodule"]
+    description: "Compiling Swift Module 'BitLoggerPackageTests' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","BitLoggerPackageTests","-emit-dependencies","-emit-module","-emit-module-path","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/Modules/BitLoggerPackageTests.swiftmodule","-output-file-map","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.build/output-file-map.json","-parse-as-library","-whole-module-optimization","-num-threads","12","-c","@/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.build/sources","-I","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/Modules","-target","arm64-apple-macosx13.0","-whole-module-optimization","-num-threads","12","-serialize-diagnostics","-O","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j12","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.build/include/BitLoggerPackageTests-Swift.h","-color-diagnostics","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","bitlogger"]
+
+  "C.BitLoggerPackageTests-arm64-apple-macosx15.0-release.test":
+    tool: shell
+    inputs: ["/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLogger.build/OSLog+Categories.swift.o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLogger.build/SecureLogger.swift.o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLogger.build/String+Sanitization.swift.o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.build/runner.swift.o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerTests.build/StringSanitizationTests.swift.o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.product/Objects.LinkFileList"]
+    outputs: ["/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.xctest/Contents/MacOS/BitLoggerPackageTests"]
+    description: "Linking ./.build/arm64-apple-macosx/release/BitLoggerPackageTests.xctest/Contents/MacOS/BitLoggerPackageTests"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-L","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release","-o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.xctest/Contents/MacOS/BitLoggerPackageTests","-module-name","BitLoggerPackageTests","-Xlinker","-no_warn_duplicate_libraries","-Xlinker","-bundle","-Xlinker","-dead_strip","-Xlinker","-rpath","-Xlinker","@loader_path/../../../","@/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.product/Objects.LinkFileList","-target","arm64-apple-macosx14.0","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g"]
+
+  "C.BitLoggerTests-arm64-apple-macosx15.0-release.module":
+    tool: shell
+    inputs: ["/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/Tests/StringSanitizationTests.swift","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/swift-version--58304C5D6DBC2206.txt","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/Modules/BitLogger.swiftmodule","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerTests.build/sources"]
+    outputs: ["/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerTests.build/StringSanitizationTests.swift.o","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/Modules/BitLoggerTests.swiftmodule"]
+    description: "Compiling Swift Module 'BitLoggerTests' (1 sources)"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-module-name","BitLoggerTests","-emit-dependencies","-emit-module","-emit-module-path","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/Modules/BitLoggerTests.swiftmodule","-output-file-map","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerTests.build/output-file-map.json","-parse-as-library","-whole-module-optimization","-num-threads","12","-c","@/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerTests.build/sources","-I","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/Modules","-target","arm64-apple-macosx14.0","-whole-module-optimization","-num-threads","12","-serialize-diagnostics","-index-store-path","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/index/store","-O","-enable-testing","-Xfrontend","-enable-cross-import-overlays","-j12","-DSWIFT_PACKAGE","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/ModuleCache","-parseable-output","-parse-as-library","-color-diagnostics","-swift-version","5","-plugin-path","/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-g","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.0.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks","-Xcc","-fPIC","-Xcc","-g","-package-name","bitlogger"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/Sources/","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/Tests/","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/Package.swift","/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

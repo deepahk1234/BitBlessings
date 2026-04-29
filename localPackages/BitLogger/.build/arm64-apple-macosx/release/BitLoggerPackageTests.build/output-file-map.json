@@ -1,0 +1,13 @@
+{
+  "": {
+    "dependencies": "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.build/BitLoggerPackageTests.d",
+    "object": "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.build/BitLoggerPackageTests.o",
+    "swift-dependencies": "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.build/master.swiftdeps"
+  },
+  "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.derived/runner.swift": {
+    "object": "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.build/runner.swift.o",
+    "swiftmodule": "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.build/runner~partial.swiftmodule",
+    "swift-dependencies": "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.build/runner.swiftdeps",
+    "diagnostics": "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerPackageTests.build/runner.dia"
+  }
+}

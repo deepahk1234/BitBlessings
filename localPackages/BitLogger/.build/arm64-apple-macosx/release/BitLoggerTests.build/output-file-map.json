@@ -1,0 +1,13 @@
+{
+  "": {
+    "dependencies": "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerTests.build/BitLoggerTests.d",
+    "object": "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerTests.build/BitLoggerTests.o",
+    "swift-dependencies": "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerTests.build/master.swiftdeps"
+  },
+  "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/Tests/StringSanitizationTests.swift": {
+    "object": "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerTests.build/StringSanitizationTests.swift.o",
+    "swiftmodule": "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerTests.build/StringSanitizationTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerTests.build/StringSanitizationTests.swiftdeps",
+    "diagnostics": "/Users/deepahandralukumar/newBlessing/BitBlessings/localPackages/BitLogger/.build/arm64-apple-macosx/release/BitLoggerTests.build/StringSanitizationTests.dia"
+  }
+}
